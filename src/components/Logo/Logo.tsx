@@ -1,14 +1,13 @@
-import Image from 'next/image';
-import logo from '../../../public/logo.svg';
+import Image from "next/image";
 
 export const Logo = () => {
   return (
     <Image
-      src={logo}
-      alt='logo'
+      src="/Logo.svg"
+      alt="logo"
       width={150}
       height={36}
-      className='logo'
+      className="logo"
       priority
     />
   );
