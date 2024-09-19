@@ -1,5 +1,4 @@
-import type { Preview } from '@storybook/react';
-import '../src/app/globals.scss';
+import type { Preview } from "@storybook/react";
 
 const preview: Preview = {
   parameters: {
@@ -10,7 +9,6 @@ const preview: Preview = {
       },
     },
     nextjs: { appDirectory: true },
-    staticDirs: ['../public'],
   },
 };
 
