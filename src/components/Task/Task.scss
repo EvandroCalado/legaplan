@@ -1,0 +1,52 @@
+.task {
+  position: relative;
+  border: 1px dashed $gray-lighter;
+  padding: 1.6rem;
+  border-radius: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  cursor: pointer;
+  transition: all 150ms ease-in-out;
+
+  &:hover {
+    border: 1px dashed $white;
+
+    & input {
+      border: 1px solid $gray-light;
+    }
+  }
+
+  &-input {
+    position: relative;
+    width: 2.4rem;
+    height: 2.4rem;
+    appearance: none;
+    border: 1px solid $gray-lighter;
+    border-radius: 0.4rem;
+    transition: all 150ms ease-in-out;
+
+    &:checked {
+      border: 1px solid $blue;
+      background-color: $blue-lighter;
+
+      &::after {
+        content: "";
+        position: absolute;
+        left: 6.5px;
+        top: 2px;
+        width: 0.5rem;
+        height: 1.2rem;
+        transform: rotate(45deg);
+        border-bottom: 2px solid $blue;
+        border-right: 2px solid $blue;
+      }
+    }
+  }
+
+  &-icon {
+    position: absolute;
+    right: 1.6rem;
+    color: $gray-light;
+  }
+}
