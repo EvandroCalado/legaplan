@@ -7,7 +7,7 @@
   align-items: center;
   gap: 1.6rem;
   cursor: pointer;
-  transition: all 150ms ease-in-out;
+  transition: border 150ms ease-in-out;
 
   &:hover {
     border: 1px dashed $white;
@@ -24,7 +24,7 @@
     appearance: none;
     border: 1px solid $gray-lighter;
     border-radius: 0.4rem;
-    transition: all 150ms ease-in-out;
+    transition: border 150ms ease-in-out;
 
     &:checked {
       border: 1px solid $blue;
@@ -42,6 +42,15 @@
         border-right: 2px solid $blue;
       }
     }
+
+    &:checked + .task-text {
+      text-decoration: line-through;
+      color: $gray;
+    }
+  }
+
+  &-text {
+    transition: color 150ms ease-in-out;
   }
 
   &-icon {
