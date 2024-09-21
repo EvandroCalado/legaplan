@@ -3,6 +3,7 @@ import { FC } from "react";
 import "./Task.scss";
 
 export type TaskProps = {
+  id: number;
   task: string;
   finished?: boolean;
   onFinished?: () => void;
