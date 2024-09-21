@@ -5,23 +5,33 @@ import "./Modal.scss";
 export type ModalProps = {
   title: string;
   buttonVariant: ButtonVariant;
-  children?: React.ReactNode;
 };
 
-export const Modal: FC<ModalProps> = ({
-  title,
-  buttonVariant = "primary",
-  children,
-}) => {
+export const Modal: FC<ModalProps> = ({ title, buttonVariant = "primary" }) => {
   return (
     <div className="modal">
-      <h2 className="modal-title">{title}</h2>
+      <div className="modal-content">
+        <h2 className="modal-content-title">{title}</h2>
 
-      {children}
+        {buttonVariant === "primary" && (
+          <div className="modal-content-add">
+            <label htmlFor="add">Título</label>
+            <input id="add" type="text" placeholder="Digite" />
+          </div>
+        )}
 
-      <div className="modal-buttons">
-        <Button variant="ghost">Cancelar</Button>
-        <Button variant={buttonVariant}>Cancelar</Button>
+        {buttonVariant === "danger" && (
+          <span className="modal-content-delete">
+            Tem certeza que você deseja deletar essa tarefa?
+          </span>
+        )}
+
+        <div className="modal-content-buttons">
+          <Button variant="ghost">Cancelar</Button>
+          <Button variant={buttonVariant}>
+            {buttonVariant === "primary" ? "Adicionar" : "Deletar"}
+          </Button>
+        </div>
       </div>
     </div>
   );

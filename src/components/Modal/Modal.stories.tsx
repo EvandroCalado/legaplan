@@ -13,9 +13,5 @@ export default {
 export const Default: StoryFn<ModalProps> = (args) => <Modal {...args} />;
 
 export const VariantDanger: StoryFn<ModalProps> = (args) => (
-  <Modal {...args} buttonVariant="danger">
-    <span style={{ color: "rgba(0, 0, 0, 0.54)" }}>
-      Tem certeza que deseja excluir esta tarefa?
-    </span>
-  </Modal>
+  <Modal {...args} buttonVariant="danger" title="Deletar tarefa" />
 );
