@@ -1,20 +1,38 @@
 .board {
-  width: 45rem;
-  border: 1px solid $gray-lightest;
-  border-radius: 1.6rem;
-  padding: 3.2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 2.4rem;
+  padding: 2.4rem;
 
-  @include breakpoint(md) {
-    width: 100%;
+  &-content {
+    width: 45rem;
+    border: 1px solid $gray-lightest;
+    border-radius: 1.6rem;
+    padding: 3.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.4rem;
+    margin: 0 auto;
+
+    @include breakpoint(md) {
+      width: 100%;
+    }
+
+    &-title {
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: $gray;
+    }
   }
 
-  &-title {
-    font-size: 1.6rem;
-    font-weight: 400;
-    color: $gray;
+  & button {
+    width: 45rem;
+
+    @include breakpoint(md) {
+      width: 100%;
+    }
   }
 }
