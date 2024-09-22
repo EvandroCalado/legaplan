@@ -1,0 +1,17 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<Logo /> > should render a logo 1`] = `
+<div>
+  <img
+    alt="logo"
+    class="logo"
+    data-nimg="1"
+    decoding="async"
+    fetchpriority="high"
+    height="36"
+    src="/Logo.svg"
+    style="color: transparent;"
+    width="150"
+  />
+</div>
+`;
