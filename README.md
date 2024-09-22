@@ -31,13 +31,13 @@ Siga as etapas abaixo para instalar e executar o projeto localmente:
 1. Clone o repositório:
 
    ```bash
-   git clone https://github.com/seu-usuario/focalpoint.git
+   git clone https://github.com/EvandroCalado/legaplan.git
    ```
 
 2. Acesse o diretório do projeto:
 
    ```bash
-   cd focalpoint
+   cd legaplan
    ```
 
 3. Instale as dependências:
