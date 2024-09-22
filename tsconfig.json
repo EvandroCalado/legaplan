@@ -29,7 +29,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "test-setup.ts",
-    "vitest.config.mts"
+    "vitest.config.mjs"
   ],
   "exclude": ["node_modules"]
 }
