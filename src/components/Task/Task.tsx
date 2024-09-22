@@ -3,7 +3,7 @@ import { FC } from "react";
 import "./Task.scss";
 
 export type TaskProps = {
-  id: number;
+  id: string;
   task: string;
   finished?: boolean;
   onFinished?: () => void;
@@ -18,7 +18,12 @@ export const Task: FC<TaskProps> = ({
 }) => {
   return (
     <article className="task">
-      <input type="checkbox" className="task-input" checked={finished} />
+      <input
+        type="checkbox"
+        className="task-input"
+        checked={finished}
+        readOnly
+      />
       <span className="task-text" onClick={onFinished}>
         {task}
       </span>
