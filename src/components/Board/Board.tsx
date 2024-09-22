@@ -23,8 +23,6 @@ export const Board: FC<BoardProps> = ({ initialTasks = [] }) => {
   const [inputValue, setInputValue] = useState("");
 
   const handleAddTask = () => {
-    if (!inputValue.trim) return;
-
     addTask(inputValue);
     closeModal();
     setInputValue("");
