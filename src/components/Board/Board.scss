@@ -26,6 +26,12 @@
       font-weight: 400;
       color: $gray;
     }
+
+    &-empty {
+      color: $blue-light;
+      font-weight: 600;
+      margin: 2rem 0;
+    }
   }
 
   & button {

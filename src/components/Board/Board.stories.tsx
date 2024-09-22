@@ -1,21 +1,31 @@
 import { Meta, StoryFn } from "@storybook/react";
 import { Board, BoardProps } from ".";
-import { Task } from "../Task";
+
+const initialTasks = [
+  {
+    id: 1,
+    task: "Lavar as maos",
+  },
+  {
+    id: 2,
+    task: "fazer um bolo",
+  },
+  {
+    id: 3,
+    task: "Lavar a louça",
+  },
+  {
+    id: 4,
+    task: "Levar o lixo para fora",
+    finished: true,
+  },
+];
 
 export default {
   title: "Components/Board",
   component: Board,
   args: {
-    children: (
-      <>
-        <Task task="Lavar as maos" />
-        <Task task="Lavar as maos" />
-
-        <h2 className="board-title">Terefas finalizadas</h2>
-
-        <Task task="Lavar as maos" finished />
-      </>
-    ),
+    initialTasks,
   },
 } as Meta;
 
