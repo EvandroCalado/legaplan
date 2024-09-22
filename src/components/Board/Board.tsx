@@ -1,5 +1,6 @@
 "use client";
 
+import { useModal, useTasks } from "@/hooks";
 import { FC, useState } from "react";
 import { Button } from "../Button";
 import { Modal } from "../Modal";
@@ -10,66 +11,48 @@ export type BoardProps = {
   initialTasks?: TaskProps[];
 };
 
-export const Board: FC<BoardProps> = ({ initialTasks }) => {
-  const [tasks, setTasks] = useState<TaskProps[]>(initialTasks || []);
-  const [inputValue, setInputValue] = useState<string>("");
-  const [onAdd, setOnAdd] = useState<boolean>(false);
-  const [onDelete, setOnDelete] = useState<TaskProps | null>(null);
+export const Board: FC<BoardProps> = ({ initialTasks = [] }) => {
+  const {
+    tasksNotFinished,
+    tasksFinished,
+    addTask,
+    removeTask,
+    toggleTaskFinished,
+  } = useTasks(initialTasks);
+  const { isOpen, modalTask, openModal, closeModal, openWithTask } = useModal();
+  const [inputValue, setInputValue] = useState("");
 
-  const tasksNotFinished = tasks.filter((task) => !task.finished);
-  const tasksFinished = tasks.filter((task) => task.finished);
+  const handleAddTask = () => {
+    if (!inputValue.trim) return;
 
-  const onFinished = (id: string) => {
-    setTasks((tasks) =>
-      tasks.map((task) =>
-        task.id === id ? { ...task, finished: !task.finished } : task
-      )
-    );
-  };
-
-  const onAddTask = (title: string) => {
-    setInputValue(title);
-  };
-
-  const handleAddNewTask = () => {
-    const newTask: TaskProps = {
-      id: `${tasks.length + 1}`,
-      task: inputValue,
-      finished: false,
-    };
-    setTasks([...tasks, newTask]);
-    setOnAdd(false);
+    addTask(inputValue);
+    closeModal();
     setInputValue("");
-  };
-
-  const onRemove = (currentTaks: TaskProps) => {
-    setTasks((tasks) => tasks.filter((task) => task.id !== currentTaks.id));
   };
 
   return (
     <section className="board">
-      {onDelete && (
+      {modalTask && (
         <Modal
           title="Deletar tarefa"
           buttonVariant="danger"
-          isOpen={!!onDelete}
-          setIsOpen={setOnDelete}
+          isOpen={isOpen}
+          setIsOpen={closeModal}
           onClick={() => {
-            onRemove(onDelete);
-            setOnDelete(null);
+            removeTask(modalTask.id);
+            closeModal();
           }}
-          onAddTask={onAddTask}
         />
       )}
 
-      {onAdd && (
+      {isOpen && !modalTask && (
         <Modal
           title="Nova tarefa"
           buttonVariant="primary"
-          isOpen={onAdd}
-          setIsOpen={() => setOnAdd(false)}
-          onClick={handleAddNewTask}
-          onAddTask={onAddTask}
+          isOpen={isOpen}
+          setIsOpen={closeModal}
+          onClick={handleAddTask}
+          onAddTask={setInputValue}
         />
       )}
 
@@ -85,8 +68,8 @@ export const Board: FC<BoardProps> = ({ initialTasks }) => {
             <Task
               key={task.id}
               {...task}
-              onFinished={() => onFinished(task.id)}
-              onRemove={() => setOnDelete(task)}
+              onFinished={() => toggleTaskFinished(task.id)}
+              onRemove={() => openWithTask(task)}
             />
           ))}
 
@@ -97,15 +80,15 @@ export const Board: FC<BoardProps> = ({ initialTasks }) => {
               <Task
                 key={task.id}
                 {...task}
-                onFinished={() => onFinished(task.id)}
-                onRemove={() => setOnDelete(task)}
+                onFinished={() => toggleTaskFinished(task.id)}
+                onRemove={() => openWithTask(task)}
               />
             ))}
           </>
         )}
       </div>
 
-      <Button onClick={() => setOnAdd(true)}>Adicionar nova tarefa</Button>
+      <Button onClick={openModal}>Adicionar nova tarefa</Button>
     </section>
   );
 };
