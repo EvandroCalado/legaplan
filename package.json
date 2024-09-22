@@ -7,6 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "test": "jest --maxWorkers=50% --passWithNoTests",
+    "test:watch": "jest --watch --maxWorkers=25%",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
@@ -27,12 +29,16 @@
     "@storybook/nextjs": "^8.3.1",
     "@storybook/react": "^8.3.1",
     "@storybook/test": "^8.3.1",
+    "@testing-library/jest-dom": "^6.5.0",
+    "@testing-library/react": "^16.0.1",
+    "@testing-library/user-event": "^14.5.2",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "14.2.12",
     "eslint-plugin-storybook": "^0.8.0",
+    "jest": "^29.7.0",
     "storybook": "^8.3.1",
     "typescript": "^5"
   }
