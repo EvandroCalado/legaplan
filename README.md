@@ -1,36 +1,125 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# FocalPoint
 
-## Getting Started
+**FocalPoint** é uma aplicação de lista de tarefas (_To-Do List_) desenvolvida com **Next.js**, utilizando **TypeScript**, **Sass**, **Storybook** e **Vitest** para garantir uma estrutura sólida, componentes estilizados e uma cobertura de testes completa.
 
-First, run the development server:
+## Tecnologias Utilizadas
+
+- **[Next.js](https://nextjs.org/)** - Framework React para renderização do lado do servidor (SSR) e geração de sites estáticos (SSG).
+- **[TypeScript](https://www.typescriptlang.org/)** - Superset do JavaScript que adiciona tipagem estática.
+- **[Sass](https://sass-lang.com/)** - Extensão CSS que facilita a escrita de estilos com aninhamento e variáveis.
+- **[Storybook](https://storybook.js.org/)** - Ferramenta para desenvolvimento de componentes de forma isolada.
+- **[Vitest](https://vitest.dev/)** - Framework de testes unitários e de integração rápido e leve.
+
+## Funcionalidades
+
+- Adicionar e remover tarefas.
+- Marcar tarefas como concluídas.
+- Separação de tarefas por status (pendente ou concluída).
+- Interface limpa e responsiva, estilizada com Sass.
+
+## Pré-requisitos
+
+Antes de começar, certifique-se de ter o Node.js e npm (ou Yarn) instalados em sua máquina.
+
+- **Node.js**: [Instalar Node.js](https://nodejs.org/)
+- **npm** (gerenciador de pacotes) ou **Yarn**.
+
+## Instalação
+
+Siga as etapas abaixo para instalar e executar o projeto localmente:
+
+1. Clone o repositório:
+
+   ```bash
+   git clone https://github.com/seu-usuario/focalpoint.git
+   ```
+
+2. Acesse o diretório do projeto:
+
+   ```bash
+   cd focalpoint
+   ```
+
+3. Instale as dependências:
+
+   ```bash
+   npm install
+   ```
+
+   ou, se estiver utilizando Yarn:
+
+   ```bash
+   yarn install
+   ```
+
+4. Execute o servidor de desenvolvimento:
+
+   ```bash
+   npm run dev
+   ```
+
+   ou
+
+   ```bash
+   yarn dev
+   ```
+
+5. Abra o navegador e acesse:
+
+   ```
+   http://localhost:3000
+   ```
+
+## Scripts Disponíveis
+
+- **`npm run dev`**: Executa o servidor de desenvolvimento Next.js.
+- **`npm run build`**: Cria uma versão de produção da aplicação.
+- **`npm run start`**: Inicia o servidor em produção após o build.
+- **`npm run lint`**: Executa o linter (ESLint).
+- **`npm run test`**: Executa os testes com o Vitest.
+- **`npm run coverage`**: Executa a cobertura de testes com o Vitest.
+- **`npm run storybook`**: Inicia o Storybook para desenvolvimento de componentes isolados.
+- **`npm run build-storybook`**: Gera uma versão estática do Storybook.
+
+## Estrutura de Pastas
+
+A estrutura principal do projeto é a seguinte:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+├── public/           # Arquivos públicos (imagens, fontes, etc.)
+├── src/
+│   ├── app/          # Páginas da aplicação (Next.js)
+│   ├── components/   # Componentes React reutilizáveis
+│   ├── hooks/        # Arquivos de hooks personalizados
+│   └── sass/         # Arquivos de estilos
+├── .eslintrc.json    # Configuração do ESLint
+├── next.config.js    # Configuração do Next.js
+├── tsconfig.json     # Configuração do TypeScript
+└── package.json      # Dependências e scripts do projeto
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Testes
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+O projeto utiliza o **Vitest** para testes. Para rodar os testes, execute o comando:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run test
+```
 
-## Learn More
+## Storybook
 
-To learn more about Next.js, take a look at the following resources:
+O **Storybook** permite que você visualize e desenvolva componentes de forma isolada. Para iniciar o Storybook, use o comando:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run storybook
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Acesse a interface do Storybook em:
 
-## Deploy on Vercel
+```
+http://localhost:6006
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Licença
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Este projeto está sob a licença **MIT**. Consulte o arquivo [LICENSE](./LICENSE) para mais detalhes.
