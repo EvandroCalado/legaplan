@@ -27,7 +27,7 @@ export const Task: FC<TaskProps> = ({
       <span className="task-text" onClick={onFinished}>
         {task}
       </span>
-      <Trash className="task-icon" onClick={onRemove} />
+      <Trash className="task-icon" onClick={onRemove} aria-label="Remover" />
     </article>
   );
 };
