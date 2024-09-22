@@ -27,7 +27,7 @@ export const Modal: FC<ModalProps> = ({
   };
 
   return (
-    <div className={`modal ${isOpen ? "open" : ""}`}>
+    <div className={`modal ${isOpen ? "open" : ""}`} aria-hidden={!isOpen}>
       <div className="modal-content">
         <h2 className="modal-content-title">{title}</h2>
 
