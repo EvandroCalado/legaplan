@@ -11,4 +11,11 @@ export default defineConfig({
       reporter: ["text", "html"],
     },
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        api: "modern-compiler",
+      },
+    },
+  },
 });
