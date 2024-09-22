@@ -120,6 +120,10 @@ Acesse a interface do Storybook em:
 http://localhost:6006
 ```
 
+## Observações
+
+As tarefas estão em um array em memoria, pois backend não era o foco o desafio.
+
 ## Licença
 
 Este projeto está sob a licença **MIT**. Consulte o arquivo [LICENSE](./LICENSE) para mais detalhes.
